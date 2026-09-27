@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>local.tcl-airplay-proxy</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/python3</string>
+		<string>__HOME__/.local/bin/tcl-airplay-proxy.py</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>TV_DEVICE_ID</key>
+		<string>__TV_DEVICE_ID__</string>
+		<key>POLL</key>
+		<string>60</string>
+	</dict>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardOutPath</key>
+	<string>__HOME__/Library/Logs/tcl-airplay-proxy.log</string>
+	<key>StandardErrorPath</key>
+	<string>__HOME__/Library/Logs/tcl-airplay-proxy.log</string>
+</dict>
+</plist>

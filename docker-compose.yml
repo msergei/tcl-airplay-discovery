@@ -1,0 +1,11 @@
+services:
+  tcl-airplay-proxy:
+    build: .
+    container_name: tcl-airplay-proxy
+    # mDNS — это multicast в локальной сети, из bridge-сети Docker он не выходит
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      TV_DEVICE_ID: ${TV_DEVICE_ID:-}
+      TV_IP: ${TV_IP:-}
+      POLL: ${POLL:-60}
