@@ -39,7 +39,7 @@ python3 tcl-airplay-proxy.py --find
 # 192.168.10.69    TV_DEVICE_ID=AA:BB:CC:DD:EE:FF  name='TCL'
 ```
 
-## Запуск на сервере в Docker (рекомендуется)
+## Запуск на сервере в Docker
 
 Нужен постоянно включённый Linux-хост в той же сети, что и телевизор. Контейнер работает в `network_mode: host`, потому что mDNS-multicast из bridge-сети Docker не выходит. avahi-daemon на хосте не мешает: порт 5353 используется совместно.
 
@@ -57,17 +57,9 @@ docker compose logs -f
 
 Обновление: `git pull && docker compose up -d --build`.
 
-## Запуск на macOS (LaunchAgent)
+## Запуск на macOS
 
-Работает, только пока Mac не спит. Если сервис уже запущен на сервере, на Mac он не нужен.
-
-```sh
-python3 tcl-airplay-proxy.py --find
-./macos/install.sh AA:BB:CC:DD:EE:FF
-tail -f ~/Library/Logs/tcl-airplay-proxy.log
-```
-
-Удаление: `./macos/uninstall.sh`.
+Вариант с LaunchAgent (работает, только пока Mac не спит) лежит в ветке [`macos`](../../tree/macos).
 
 ## Проверка
 
